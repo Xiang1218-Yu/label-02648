@@ -1,0 +1,4 @@
+# 此目录用于存放训练好的模型文件
+# 运行 main.py 后会生成：
+# - random_forest_model.pkl
+# - xgboost_model.pkl

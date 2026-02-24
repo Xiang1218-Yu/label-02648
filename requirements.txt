@@ -1,0 +1,17 @@
+# 兼容 Python 3.13 的依赖包版本
+pandas>=2.1.0
+numpy>=1.26.0
+scikit-learn>=1.3.0
+xgboost>=2.0.0
+lightgbm>=4.1.0
+matplotlib>=3.8.0
+seaborn>=0.13.0
+scipy>=1.11.0
+openpyxl>=3.1.0
+joblib>=1.3.0
+optuna>=3.4.0
+jupyter>=1.0.0
+notebook>=7.0.0
+ipykernel>=6.26.0
+ipywidgets>=8.1.0
+setuptools>=65.0.0

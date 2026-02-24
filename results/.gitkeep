@@ -1,0 +1,8 @@
+# 此目录用于存放预测结果和性能指标
+# 运行 main.py 后会生成：
+# - predictions.csv
+# - performance_metrics.xlsx
+# - predictions_comparison.png
+# - feature_importance.png
+# - time_series_comparison.png
+# - schedule_recommendations.json
