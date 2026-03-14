@@ -749,6 +749,36 @@ jupyter notebook
 - **调度建议**：`results/schedule_recommendations.json`
 - **运行日志**：`logs/project.log`
 
+### 4. 使用Docker运行
+
+**前提条件**：
+- 安装Docker和Docker Compose
+
+**启动步骤**：
+
+```bash
+# 在项目根目录执行
+docker compose up
+```
+
+**查看日志**：
+
+```bash
+docker compose logs -f
+```
+
+**停止服务**：
+
+```bash
+docker compose down
+```
+
+**清理容器和镜像**（可选）：
+
+```bash
+docker compose down --rmi all
+```
+
 ---
 
 ## 核心算法说明

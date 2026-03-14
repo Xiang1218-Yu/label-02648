@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  food-delivery-prediction:
+    build: .
+    container_name: food-delivery-prediction
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./models:/app/models
+      - ./results:/app/results
+    restart: on-failure
+    environment:
+      - PYTHONUNBUFFERED=1
