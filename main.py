@@ -10,7 +10,23 @@ import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 
 # 导入项目模块
-from config import Config
+import sys
+import os
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+try:
+    from config import Config
+    if not hasattr(Config, 'LOG_LEVEL'):
+        raise ImportError("Config missing expected attributes")
+except Exception as e:
+    print(f"Falling back to root config.py due to: {e}")
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("config_module", os.path.join(os.path.dirname(__file__), 'config.py'))
+    config_module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(config_module)
+    Config = config_module.Config
+
 from data.data_generator import generate_simulated_data
 from src.data_preprocessing import DataPreprocessor
 from src.feature_engineering import create_advanced_features, create_region_features

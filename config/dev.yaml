@@ -1,0 +1,11 @@
+data:
+  simulation_days: 30
+
+model:
+  models_to_train:
+    - "random_forest"
+  use_optuna: false
+  n_trials: 10
+
+logging:
+  level: "DEBUG"

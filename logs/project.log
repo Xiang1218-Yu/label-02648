@@ -1,0 +1,119 @@
+2026-04-10 15:47:31,220 - main - INFO - ==================================================
+2026-04-10 15:47:31,220 - main - INFO - 步骤 1: 数据加载
+2026-04-10 15:47:31,220 - main - INFO - ==================================================
+2026-04-10 15:47:31,220 - main - INFO - 加载已有数据: /Users/tog_11/code/代做/tmp/label-02648/data/simulated_data.csv
+2026-04-10 15:47:31,231 - main - INFO - 数据形状: (2160, 14)
+2026-04-10 15:47:31,231 - main - INFO - 时间范围: 2024-01-01 00:00:00 至 2024-03-30 23:00:00
+2026-04-10 15:47:31,231 - main - INFO - ==================================================
+2026-04-10 15:47:31,231 - main - INFO - 可选步骤: 探索性数据分析 (EDA)
+2026-04-10 15:47:31,231 - main - INFO - ==================================================
+2026-04-10 15:47:31,231 - src.eda - INFO - ============================================================
+2026-04-10 15:47:31,231 - src.eda - INFO - 开始生成完整EDA报告
+2026-04-10 15:47:31,231 - src.eda - INFO - ============================================================
+2026-04-10 15:47:31,231 - src.eda - INFO - ============================================================
+2026-04-10 15:47:31,231 - src.eda - INFO - 数据基本信息
+2026-04-10 15:47:31,231 - src.eda - INFO - ============================================================
+2026-04-10 15:47:31,273 - src.eda - INFO - 绘制时间序列图...
+2026-04-10 15:47:31,600 - src.eda - INFO - 时间序列图已保存: /Users/tog_11/code/代做/tmp/label-02648/results/eda/time_series.png
+2026-04-10 15:47:31,601 - src.eda - INFO - 绘制分布图...
+2026-04-10 15:47:31,751 - src.eda - INFO - 分布图已保存: /Users/tog_11/code/代做/tmp/label-02648/results/eda/distribution.png
+2026-04-10 15:47:31,751 - src.eda - INFO - 绘制相关性矩阵...
+2026-04-10 15:47:31,877 - src.eda - INFO - 相关性矩阵已保存: /Users/tog_11/code/代做/tmp/label-02648/results/eda/correlation_matrix.png
+2026-04-10 15:47:31,877 - src.eda - INFO - 绘制分类变量分析图...
+2026-04-10 15:47:31,995 - src.eda - INFO - 分类变量分析图已保存: /Users/tog_11/code/代做/tmp/label-02648/results/eda/categorical_analysis.png
+2026-04-10 15:47:31,995 - src.eda - INFO - 绘制区域订单分析图...
+2026-04-10 15:47:32,122 - src.eda - INFO - 区域分析图已保存: /Users/tog_11/code/代做/tmp/label-02648/results/eda/region_analysis.png
+2026-04-10 15:47:32,122 - src.eda - INFO - ============================================================
+2026-04-10 15:47:32,122 - src.eda - INFO - EDA报告生成完成，保存在: /Users/tog_11/code/代做/tmp/label-02648/results/eda
+2026-04-10 15:47:32,122 - src.eda - INFO - ============================================================
+2026-04-10 15:47:32,122 - main - INFO - EDA分析完成
+2026-04-10 15:47:32,122 - main - INFO - ==================================================
+2026-04-10 15:47:32,122 - main - INFO - 步骤 2: 数据预处理
+2026-04-10 15:47:32,122 - main - INFO - ==================================================
+2026-04-10 15:47:32,122 - src.data_preprocessing - INFO - 开始数据清洗...
+2026-04-10 15:47:32,125 - src.data_preprocessing - INFO - region_A_orders: 发现 2 个异常值
+2026-04-10 15:47:32,126 - src.data_preprocessing - INFO - region_B_orders: 发现 5 个异常值
+2026-04-10 15:47:32,126 - src.data_preprocessing - INFO - region_C_orders: 发现 20 个异常值
+2026-04-10 15:47:32,127 - src.data_preprocessing - INFO - region_D_orders: 发现 25 个异常值
+2026-04-10 15:47:32,127 - src.data_preprocessing - INFO - region_E_orders: 发现 29 个异常值
+2026-04-10 15:47:32,127 - src.data_preprocessing - INFO - 数据清洗完成
+2026-04-10 15:47:32,127 - src.data_preprocessing - INFO - 开始创建所有特征...
+2026-04-10 15:47:32,127 - src.data_preprocessing - INFO - 创建时间特征...
+2026-04-10 15:47:32,128 - src.data_preprocessing - INFO - 时间特征创建完成，新增特征数: 3
+2026-04-10 15:47:32,128 - src.data_preprocessing - INFO - 创建滞后特征，滞后期: [1, 2, 3, 6, 12]
+2026-04-10 15:47:32,129 - src.data_preprocessing - INFO - 滞后特征创建完成，新增特征数: 5
+2026-04-10 15:47:32,129 - src.data_preprocessing - INFO - 创建滑动窗口特征，窗口大小: [3, 6, 12, 24]
+2026-04-10 15:47:32,132 - src.data_preprocessing - INFO - 滑动窗口特征创建完成，新增特征数: 16
+2026-04-10 15:47:32,132 - src.data_preprocessing - INFO - 编码分类变量...
+2026-04-10 15:47:32,133 - src.data_preprocessing - INFO - 分类变量编码完成
+2026-04-10 15:47:32,134 - src.data_preprocessing - INFO - 特征创建完成，删除 23 行NaN数据
+2026-04-10 15:47:32,134 - src.data_preprocessing - INFO - 最终数据形状: (2137, 42)
+2026-04-10 15:47:32,134 - main - INFO - 预处理后数据形状: (2137, 42)
+2026-04-10 15:47:32,134 - main - INFO - ==================================================
+2026-04-10 15:47:32,134 - main - INFO - 步骤 3: 特征工程
+2026-04-10 15:47:32,134 - main - INFO - ==================================================
+2026-04-10 15:47:32,134 - src.feature_engineering - INFO - 开始创建高级特征...
+2026-04-10 15:47:32,138 - src.feature_engineering - INFO - 高级特征创建完成，当前特征数: 63
+2026-04-10 15:47:32,138 - src.feature_engineering - INFO - 创建区域特征...
+2026-04-10 15:47:32,139 - src.feature_engineering - INFO - 区域特征创建完成
+2026-04-10 15:47:32,139 - main - INFO - 特征工程后数据形状: (2137, 71)
+2026-04-10 15:47:32,139 - main - INFO - 总特征数: 71
+2026-04-10 15:47:32,139 - main - INFO - ==================================================
+2026-04-10 15:47:32,139 - main - INFO - 步骤 4: 准备训练数据
+2026-04-10 15:47:32,139 - main - INFO - ==================================================
+2026-04-10 15:47:32,140 - main - INFO - 特征数量: 63
+2026-04-10 15:47:32,140 - main - INFO - 样本数量: 2137
+2026-04-10 15:47:32,140 - main - INFO - 训练集大小: 1709
+2026-04-10 15:47:32,140 - main - INFO - 测试集大小: 428
+2026-04-10 15:47:32,140 - main - INFO - ==================================================
+2026-04-10 15:47:32,140 - main - INFO - 步骤 5: 模型训练
+2026-04-10 15:47:32,140 - main - INFO - ==================================================
+2026-04-10 15:47:32,140 - src.model_training - INFO - 开始训练模型: ['random_forest', 'xgboost']
+2026-04-10 15:47:32,140 - src.model_training - INFO - 开始训练随机森林模型...
+2026-04-10 15:47:32,635 - src.model_training - INFO - 使用默认参数训练完成
+2026-04-10 15:47:32,635 - src.model_training - INFO - 随机森林模型训练完成
+2026-04-10 15:47:32,635 - src.model_training - INFO - 开始训练XGBoost模型...
+2026-04-10 15:47:33,124 - src.model_training - INFO - 使用默认参数训练完成
+2026-04-10 15:47:33,124 - src.model_training - INFO - XGBoost模型训练完成
+2026-04-10 15:47:33,124 - src.model_training - INFO - 所有模型训练完成，共训练 2 个模型
+2026-04-10 15:47:33,162 - src.model_training - INFO - 模型已保存: /Users/tog_11/code/代做/tmp/label-02648/models/random_forest_model.pkl
+2026-04-10 15:47:33,164 - src.model_training - INFO - 模型已保存: /Users/tog_11/code/代做/tmp/label-02648/models/xgboost_model.pkl
+2026-04-10 15:47:33,164 - main - INFO - ==================================================
+2026-04-10 15:47:33,164 - main - INFO - 步骤 6: 模型评估
+2026-04-10 15:47:33,164 - main - INFO - ==================================================
+2026-04-10 15:47:33,164 - src.model_evaluation - INFO - 开始计算评估指标...
+2026-04-10 15:47:33,164 - src.model_evaluation - INFO - 评估模型: random_forest
+2026-04-10 15:47:33,178 - src.model_evaluation - INFO - random_forest 评估指标:
+2026-04-10 15:47:33,178 - src.model_evaluation - INFO -   MAE: 2.7569
+2026-04-10 15:47:33,178 - src.model_evaluation - INFO -   MSE: 29.4621
+2026-04-10 15:47:33,178 - src.model_evaluation - INFO -   RMSE: 5.4279
+2026-04-10 15:47:33,178 - src.model_evaluation - INFO -   R2: 0.9930
+2026-04-10 15:47:33,178 - src.model_evaluation - INFO -   MAPE: 3.8304
+2026-04-10 15:47:33,178 - src.model_evaluation - INFO -   Explained_Variance: 0.9930
+2026-04-10 15:47:33,178 - src.model_evaluation - INFO - 评估模型: xgboost
+2026-04-10 15:47:33,182 - src.model_evaluation - INFO - xgboost 评估指标:
+2026-04-10 15:47:33,182 - src.model_evaluation - INFO -   MAE: 2.7460
+2026-04-10 15:47:33,182 - src.model_evaluation - INFO -   MSE: 20.0031
+2026-04-10 15:47:33,182 - src.model_evaluation - INFO -   RMSE: 4.4725
+2026-04-10 15:47:33,182 - src.model_evaluation - INFO -   R2: 0.9952
+2026-04-10 15:47:33,182 - src.model_evaluation - INFO -   MAPE: 3.9296
+2026-04-10 15:47:33,182 - src.model_evaluation - INFO -   Explained_Variance: 0.9952
+2026-04-10 15:47:33,182 - src.model_evaluation - INFO - 绘制预测对比图...
+2026-04-10 15:47:33,339 - src.model_evaluation - INFO - 预测对比图已保存: /Users/tog_11/code/代做/tmp/label-02648/results/predictions_comparison.png
+2026-04-10 15:47:33,339 - src.model_evaluation - INFO - 绘制特征重要性图...
+2026-04-10 15:47:33,467 - src.model_evaluation - INFO - 特征重要性图已保存: /Users/tog_11/code/代做/tmp/label-02648/results/feature_importance.png
+2026-04-10 15:47:33,467 - src.model_evaluation - INFO - 绘制时间序列对比图...
+2026-04-10 15:47:33,535 - src.model_evaluation - INFO - 时间序列对比图已保存: /Users/tog_11/code/代做/tmp/label-02648/results/time_series_comparison.png
+2026-04-10 15:47:33,535 - src.model_evaluation - INFO - 导出性能指标到: /Users/tog_11/code/代做/tmp/label-02648/results/performance_metrics.xlsx
+2026-04-10 15:47:33,600 - src.model_evaluation - INFO - 性能指标导出完成
+2026-04-10 15:47:33,600 - main - INFO - ==================================================
+2026-04-10 15:47:33,600 - main - INFO - 步骤 7: 生成调度建议
+2026-04-10 15:47:33,600 - main - INFO - ==================================================
+2026-04-10 15:47:33,600 - main - INFO - 最佳模型: xgboost (R²=0.9952)
+2026-04-10 15:47:33,602 - src.scheduling_optimization - INFO - 生成调度建议报告...
+2026-04-10 15:47:33,603 - src.scheduling_optimization - INFO - 识别高峰时段: [7, 8, 9, 15, 16, 17]
+2026-04-10 15:47:33,603 - src.scheduling_optimization - INFO - 计算骑手分配方案...
+2026-04-10 15:47:33,603 - src.scheduling_optimization - INFO - 调度建议生成完成，总需求骑手: 221
+2026-04-10 15:47:33,603 - src.scheduling_optimization - INFO - 调度建议已保存: /Users/tog_11/code/代做/tmp/label-02648/results/schedule_recommendations.json
+2026-04-10 15:47:33,603 - main - INFO - 保存预测结果...
+2026-04-10 15:47:33,619 - main - INFO - 预测结果已保存: /Users/tog_11/code/代做/tmp/label-02648/results/predictions.csv
