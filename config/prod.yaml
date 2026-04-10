@@ -1,0 +1,9 @@
+data:
+  simulation_days: 365
+
+model:
+  use_optuna: true
+  n_trials: 200
+
+logging:
+  level: "WARNING"

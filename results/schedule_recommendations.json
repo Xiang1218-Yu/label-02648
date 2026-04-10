@@ -1,0 +1,191 @@
+{
+  "peak_hours": [
+    7,
+    8,
+    9,
+    15,
+    16,
+    17
+  ],
+  "weather_adjustments": [
+    {
+      "type": "normal",
+      "percentage": -0.05,
+      "reason": "多云，订单量可能略微下降5%"
+    }
+  ],
+  "region_priorities": [
+    {
+      "region": "region_0",
+      "total_orders": 830,
+      "priority": 1
+    },
+    {
+      "region": "region_1",
+      "total_orders": 722,
+      "priority": 2
+    },
+    {
+      "region": "region_2",
+      "total_orders": 538,
+      "priority": 3
+    },
+    {
+      "region": "region_3",
+      "total_orders": 373,
+      "priority": 4
+    },
+    {
+      "region": "region_4",
+      "total_orders": 240,
+      "priority": 5
+    }
+  ],
+  "total_riders_needed": 221,
+  "hourly_allocation": [
+    {
+      "hour": 0,
+      "predicted_orders": 12,
+      "required_riders": 2,
+      "utilization_rate": 63.7
+    },
+    {
+      "hour": 1,
+      "predicted_orders": 13,
+      "required_riders": 2,
+      "utilization_rate": 67.02
+    },
+    {
+      "hour": 2,
+      "predicted_orders": 37,
+      "required_riders": 4,
+      "utilization_rate": 92.72
+    },
+    {
+      "hour": 3,
+      "predicted_orders": 56,
+      "required_riders": 6,
+      "utilization_rate": 93.43
+    },
+    {
+      "hour": 4,
+      "predicted_orders": 79,
+      "required_riders": 8,
+      "utilization_rate": 99.72
+    },
+    {
+      "hour": 5,
+      "predicted_orders": 69,
+      "required_riders": 7,
+      "utilization_rate": 99.57
+    },
+    {
+      "hour": 6,
+      "predicted_orders": 90,
+      "required_riders": 10,
+      "utilization_rate": 90.29
+    },
+    {
+      "hour": 7,
+      "predicted_orders": 132,
+      "required_riders": 14,
+      "utilization_rate": 94.75
+    },
+    {
+      "hour": 8,
+      "predicted_orders": 206,
+      "required_riders": 21,
+      "utilization_rate": 98.47
+    },
+    {
+      "hour": 9,
+      "predicted_orders": 138,
+      "required_riders": 14,
+      "utilization_rate": 99.14
+    },
+    {
+      "hour": 10,
+      "predicted_orders": 112,
+      "required_riders": 12,
+      "utilization_rate": 93.69
+    },
+    {
+      "hour": 11,
+      "predicted_orders": 89,
+      "required_riders": 9,
+      "utilization_rate": 99.37
+    },
+    {
+      "hour": 12,
+      "predicted_orders": 91,
+      "required_riders": 10,
+      "utilization_rate": 91.26
+    },
+    {
+      "hour": 13,
+      "predicted_orders": 67,
+      "required_riders": 7,
+      "utilization_rate": 96.79
+    },
+    {
+      "hour": 14,
+      "predicted_orders": 118,
+      "required_riders": 12,
+      "utilization_rate": 98.49
+    },
+    {
+      "hour": 15,
+      "predicted_orders": 210,
+      "required_riders": 22,
+      "utilization_rate": 95.57
+    },
+    {
+      "hour": 16,
+      "predicted_orders": 205,
+      "required_riders": 21,
+      "utilization_rate": 97.71
+    },
+    {
+      "hour": 17,
+      "predicted_orders": 134,
+      "required_riders": 14,
+      "utilization_rate": 96.07
+    },
+    {
+      "hour": 18,
+      "predicted_orders": 97,
+      "required_riders": 10,
+      "utilization_rate": 97.93
+    },
+    {
+      "hour": 19,
+      "predicted_orders": 66,
+      "required_riders": 7,
+      "utilization_rate": 94.62
+    },
+    {
+      "hour": 20,
+      "predicted_orders": 35,
+      "required_riders": 4,
+      "utilization_rate": 89.53
+    },
+    {
+      "hour": 21,
+      "predicted_orders": 17,
+      "required_riders": 2,
+      "utilization_rate": 87.01
+    },
+    {
+      "hour": 22,
+      "predicted_orders": 11,
+      "required_riders": 2,
+      "utilization_rate": 56.35
+    },
+    {
+      "hour": 23,
+      "predicted_orders": 8,
+      "required_riders": 1,
+      "utilization_rate": 80.7
+    }
+  ]
+}

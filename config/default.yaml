@@ -1,0 +1,53 @@
+project:
+  name: "外卖订单预测与调度优化系统"
+  version: "1.0.0"
+
+paths:
+  base_dir: "${PROJECT_ROOT}"
+  data_dir: "${PROJECT_ROOT}/data"
+  models_dir: "${PROJECT_ROOT}/models"
+  results_dir: "${PROJECT_ROOT}/results"
+  logs_dir: "${PROJECT_ROOT}/logs"
+
+data:
+  simulation_days: 90
+  save_results: true
+  test_size: 0.2
+
+model:
+  models_to_train:
+    - "random_forest"
+    - "xgboost"
+  random_state: 42
+  cv_folds: 5
+  use_optuna: false
+  n_trials: 100
+
+features:
+  lag_features:
+    - 1
+    - 2
+    - 3
+    - 6
+    - 12
+  rolling_windows:
+    - 3
+    - 6
+    - 12
+    - 24
+
+scheduling:
+  rider_efficiency: 10
+  max_riders_per_region: 50
+  n_hotspot_clusters: 3
+
+visualization:
+  plot_style: "default"
+  figure_size:
+    - 12
+    - 8
+  dpi: 100
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
