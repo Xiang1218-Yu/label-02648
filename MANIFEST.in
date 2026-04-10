@@ -1,0 +1,16 @@
+include README.md
+include requirements.txt
+include *.md
+include *.py
+include *.toml
+
+recursive-include data *.csv *.json *.py
+recursive-include models *.joblib *.pkl
+recursive-include results *.png *.xlsx *.json
+recursive-include logs *.log
+recursive-include notebooks *.ipynb
+
+global-exclude __pycache__
+global-exclude *.py[cod]
+global-exclude .git*
+global-exclude .DS_Store

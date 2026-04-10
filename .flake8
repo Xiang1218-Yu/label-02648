@@ -1,0 +1,6 @@
+[flake8]
+max-line-length = 120
+extend-ignore = E203
+exclude = venv,__pycache__,*.pyc,.git,.pytest_cache,.coverage,*.egg-info
+per-file-ignores =
+    scripts/*.py: E402

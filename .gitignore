@@ -6,6 +6,7 @@ __pycache__/
 .Python
 env/
 venv/
+.venv/
 ENV/
 build/
 develop-eggs/
@@ -22,7 +23,16 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-
+.pytest_cache/
+.mypy_cache/
+.tox/
+.nox/
+coverage/
+.coverage
+.coverage.*
+*.cover
+*.py,cover
+hypothesis/
 
 # IDE
 .vscode/
@@ -36,3 +46,31 @@ wheels/
 
 # Windows
 Thumbs.db
+
+# Project data & results
+*.xlsx
+*.xls
+data/processed/
+results/*
+models/*.joblib
+models/*.pkl
+models/*.model
+logs/*.log
+notebooks/.ipynb_checkpoints/
+ipynb_checkpoints/
+
+# 保留模拟数据样本
+!data/simulated_data.csv
+!*.sample.csv
+
+# Environment
+.env
+.env.local
+.env.*.local
+*.env
+
+
+# Other
+*.tmp
+*.temp
+*.bak

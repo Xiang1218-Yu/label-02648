@@ -1,6 +1,7 @@
 """
 工具函数模块
 """
+
 import numpy as np
 import pandas as pd
 
@@ -8,10 +9,10 @@ import pandas as pd
 def convert_to_json_serializable(obj):
     """
     递归转换对象为 JSON 可序列化的类型
-    
+
     参数:
         obj: 任意对象
-    
+
     返回:
         JSON 可序列化的对象
     """
@@ -32,7 +33,7 @@ def convert_to_json_serializable(obj):
     elif isinstance(obj, pd.Series):
         return obj.tolist()
     elif isinstance(obj, pd.DataFrame):
-        return obj.to_dict('records')
+        return obj.to_dict("records")
     elif pd.isna(obj):
         return None
     else:
@@ -42,10 +43,10 @@ def convert_to_json_serializable(obj):
 def safe_int(value):
     """
     安全地转换为 int 类型
-    
+
     参数:
         value: 任意数值
-    
+
     返回:
         int 类型的值
     """
@@ -60,10 +61,10 @@ def safe_int(value):
 def safe_float(value):
     """
     安全地转换为 float 类型
-    
+
     参数:
         value: 任意数值
-    
+
     返回:
         float 类型的值
     """

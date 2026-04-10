@@ -1,0 +1,10 @@
+# 生产环境配置
+environment: production
+
+log_level: INFO
+enable_eda: false
+use_optuna: true
+
+simulation_days: 180
+n_trials: 200
+cv_folds: 10

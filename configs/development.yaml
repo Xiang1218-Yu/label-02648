@@ -1,0 +1,9 @@
+# 开发环境配置
+environment: development
+
+log_level: DEBUG
+enable_eda: true
+use_optuna: false
+
+simulation_days: 90
+n_trials: 50
