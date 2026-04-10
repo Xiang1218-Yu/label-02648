@@ -1,0 +1,35 @@
+{
+  "data": {
+    "data_dir": "data",
+    "data_path": "data/simulated_data.csv",
+    "simulation_days": 90,
+    "save_results": true
+  },
+  "model": {
+    "models_to_train": ["random_forest", "xgboost"],
+    "test_size": 0.2,
+    "random_state": 42,
+    "cv_folds": 5
+  },
+  "eda": {
+    "enable_eda": true
+  },
+  "feature": {
+    "lag_features": [1, 2, 3, 6, 12],
+    "rolling_windows": [3, 6, 12, 24]
+  },
+  "optimizer": {
+    "rider_efficiency": 10,
+    "max_riders_per_region": 50,
+    "n_hotspot_clusters": 3
+  },
+  "paths": {
+    "models_dir": "models",
+    "results_dir": "results",
+    "logs_dir": "logs"
+  },
+  "logging": {
+    "level": "INFO",
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  }
+}
