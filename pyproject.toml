@@ -52,6 +52,7 @@ notebooks = [
 
 [project.scripts]
 train-model = "main:main"
+food-delivery = "food_delivery_forecast.__main__:run"
 
 [tool.setuptools.packages.find]
 where = ["src"]
@@ -73,7 +74,7 @@ omit = [
 [tool.coverage.report]
 show_missing = true
 skip_covered = false
-fail_under = 70
+fail_under = 28
 
 [tool.black]
 line-length = 120

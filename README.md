@@ -707,6 +707,9 @@ pip install -r requirements.txt
 ```bash
 # 运行主程序（包含数据生成、训练、评估、调度优化）
 python main.py
+
+# 或使用标准包入口运行
+python -m food_delivery_forecast
 ```
 
 **运行特定模块**：
@@ -748,6 +751,29 @@ jupyter notebook
 - **EDA分析结果**：`results/eda/` 目录
 - **调度建议**：`results/schedule_recommendations.json`
 - **运行日志**：`logs/project.log`
+
+### 4. 配置管理（新增）
+
+项目支持分环境配置，配置文件位于 `config/`：
+
+- `config/settings.base.json`：基础配置
+- `config/settings.dev.json`：开发环境覆盖配置
+- `config/settings.prod.json`：生产环境覆盖配置
+
+通过环境变量切换：
+
+```bash
+export APP_ENV=dev   # 或 prod
+python main.py
+```
+
+关键项也支持环境变量直接覆盖，例如：
+
+```bash
+export TEST_SIZE=0.25
+export ENABLE_EDA=false
+python main.py
+```
 
 ### 4. 使用Docker运行
 

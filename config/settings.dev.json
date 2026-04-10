@@ -1,0 +1,8 @@
+{
+  "eda": {
+    "enable_eda": true
+  },
+  "logging": {
+    "level": "DEBUG"
+  }
+}
