@@ -1,10 +1,11 @@
 #!/usr/bin/env python
+import os
+import shutil
+import tempfile
+
 import numpy as np
 import pandas as pd
 import pytest
-import os
-import tempfile
-import shutil
 
 from src.model_training import ModelTrainer
 
@@ -90,7 +91,9 @@ class TestModelTrainer:
         trainer = ModelTrainer(random_state=42)
         X, y = self._get_sample_xy(sample_data)
 
-        models = trainer.train_all_models(X, y, models_to_train=['random_forest'], use_grid_search=False)
+        models = trainer.train_all_models(
+            X, y, models_to_train=["random_forest"], use_grid_search=False
+        )
         assert isinstance(models, dict)
         assert "random_forest" in models
         assert len(models) == 1
@@ -100,9 +103,7 @@ class TestModelTrainer:
         X, y = self._get_sample_xy(sample_data)
 
         models = trainer.train_all_models(
-            X, y, 
-            models_to_train=['random_forest', 'xgboost'], 
-            use_grid_search=False
+            X, y, models_to_train=["random_forest", "xgboost"], use_grid_search=False
         )
         assert isinstance(models, dict)
         assert "random_forest" in models
@@ -121,10 +122,12 @@ class TestModelTrainer:
         trainer = ModelTrainer(random_state=42)
         X, y = self._get_sample_xy(sample_data)
 
-        models = trainer.train_all_models(X, y, models_to_train=['unknown_model'])
+        models = trainer.train_all_models(X, y, models_to_train=["unknown_model"])
         assert len(models) == 0
         # Check that a warning was logged
-        found_warning = any('未知模型' in rec.message or '未知模型' in str(rec) for rec in caplog.records)
+        found_warning = any(
+            "未知模型" in rec.message or "未知模型" in str(rec) for rec in caplog.records
+        )
 
     def test_save_models(self, sample_data):
         trainer = ModelTrainer(random_state=42)
@@ -136,8 +139,10 @@ class TestModelTrainer:
             trainer.save_models(save_dir=temp_dir)
 
             saved_files = os.listdir(temp_dir)
-            assert 'random_forest_model.pkl' in saved_files
-            assert os.path.getsize(os.path.join(temp_dir, 'random_forest_model.pkl')) > 0
+            assert "random_forest_model.pkl" in saved_files
+            assert (
+                os.path.getsize(os.path.join(temp_dir, "random_forest_model.pkl")) > 0
+            )
         finally:
             shutil.rmtree(temp_dir, ignore_errors=True)
 
@@ -147,7 +152,7 @@ class TestModelTrainer:
         trainer.train_random_forest(X, y, use_grid_search=False)
 
         temp_dir = tempfile.mkdtemp()
-        nested_dir = os.path.join(temp_dir, 'nested', 'models')
+        nested_dir = os.path.join(temp_dir, "nested", "models")
 
         try:
             trainer.save_models(save_dir=nested_dir)
@@ -169,11 +174,11 @@ class TestModelTrainer:
             trainer2 = ModelTrainer()
             loaded_models = trainer2.load_models(load_dir=temp_dir)
 
-            assert 'random_forest' in loaded_models
+            assert "random_forest" in loaded_models
             assert len(loaded_models) == 1
 
             # Verify model can still make predictions
-            predictions = loaded_models['random_forest'].predict(X)
+            predictions = loaded_models["random_forest"].predict(X)
             assert len(predictions) == len(y)
         finally:
             shutil.rmtree(temp_dir, ignore_errors=True)
@@ -181,12 +186,14 @@ class TestModelTrainer:
     def test_load_models_directory_not_exists(self):
         trainer = ModelTrainer()
         with pytest.raises(FileNotFoundError):
-            trainer.load_models(load_dir='/path/that/does/not/exist')
+            trainer.load_models(load_dir="/path/that/does/not/exist")
 
     def test_multiple_models_saveload_cycle(self, sample_data):
         trainer1 = ModelTrainer(random_state=42)
         X, y = self._get_sample_xy(sample_data)
-        trainer1.train_all_models(X, y, models_to_train=['random_forest', 'xgboost'], use_grid_search=False)
+        trainer1.train_all_models(
+            X, y, models_to_train=["random_forest", "xgboost"], use_grid_search=False
+        )
 
         temp_dir = tempfile.mkdtemp()
         try:
@@ -195,8 +202,8 @@ class TestModelTrainer:
             trainer2 = ModelTrainer()
             loaded_models = trainer2.load_models(load_dir=temp_dir)
 
-            assert 'random_forest' in loaded_models
-            assert 'xgboost' in loaded_models
+            assert "random_forest" in loaded_models
+            assert "xgboost" in loaded_models
             assert len(loaded_models) == 2
         finally:
             shutil.rmtree(temp_dir, ignore_errors=True)

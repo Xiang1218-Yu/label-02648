@@ -1,13 +1,16 @@
 #!/usr/bin/env python
+import os
+
+import matplotlib
 import numpy as np
 import pandas as pd
 import pytest
-import os
-import matplotlib
-matplotlib.use('Agg')
+
+matplotlib.use("Agg")
 
 from sklearn.linear_model import LinearRegression
 from sklearn.tree import DecisionTreeRegressor
+
 from src.model_evaluation import ModelEvaluator
 
 
@@ -26,7 +29,7 @@ class TestModelEvaluator:
         lr.fit(X, y)
         dt = DecisionTreeRegressor(max_depth=3, random_state=42)
         dt.fit(X, y)
-        return {'LinearRegression': lr, 'DecisionTree': dt}
+        return {"LinearRegression": lr, "DecisionTree": dt}
 
     def test_initialization(self, trained_models):
         evaluator = ModelEvaluator(trained_models)
@@ -50,24 +53,24 @@ class TestModelEvaluator:
         metrics = evaluator.calculate_metrics(X, y)
 
         assert isinstance(metrics, dict)
-        assert 'LinearRegression' in metrics
-        assert 'DecisionTree' in metrics
+        assert "LinearRegression" in metrics
+        assert "DecisionTree" in metrics
 
         for model_name, model_metrics in metrics.items():
-            assert 'MAE' in model_metrics
-            assert 'MSE' in model_metrics
-            assert 'RMSE' in model_metrics
-            assert 'R2' in model_metrics
-            assert 'MAPE' in model_metrics
-            assert 'Explained_Variance' in model_metrics
+            assert "MAE" in model_metrics
+            assert "MSE" in model_metrics
+            assert "RMSE" in model_metrics
+            assert "R2" in model_metrics
+            assert "MAPE" in model_metrics
+            assert "Explained_Variance" in model_metrics
 
     def test_predictions_stored(self, trained_models, sample_model_data):
         X, y = sample_model_data
         evaluator = ModelEvaluator(trained_models)
         evaluator.calculate_metrics(X, y)
 
-        assert 'LinearRegression' in evaluator.predictions
-        assert 'DecisionTree' in evaluator.predictions
+        assert "LinearRegression" in evaluator.predictions
+        assert "DecisionTree" in evaluator.predictions
 
     def test_plot_predictions(self, trained_models, sample_model_data):
         X, y = sample_model_data
@@ -77,7 +80,9 @@ class TestModelEvaluator:
         assert fig is not None
         matplotlib.pyplot.close()
 
-    def test_plot_predictions_save_path(self, tmp_path, trained_models, sample_model_data):
+    def test_plot_predictions_save_path(
+        self, tmp_path, trained_models, sample_model_data
+    ):
         X, y = sample_model_data
         save_path = str(tmp_path / "predictions.png")
         evaluator = ModelEvaluator(trained_models)
@@ -88,16 +93,18 @@ class TestModelEvaluator:
 
     def test_plot_feature_importance(self, trained_models, sample_model_data):
         X, y = sample_model_data
-        feature_names = [f'feature_{i}' for i in range(X.shape[1])]
+        feature_names = [f"feature_{i}" for i in range(X.shape[1])]
         evaluator = ModelEvaluator(trained_models)
         evaluator.calculate_metrics(X, y)
         fig = evaluator.plot_feature_importance(feature_names)
         assert fig is not None
         matplotlib.pyplot.close()
 
-    def test_plot_feature_importance_save_path(self, tmp_path, trained_models, sample_model_data):
+    def test_plot_feature_importance_save_path(
+        self, tmp_path, trained_models, sample_model_data
+    ):
         X, y = sample_model_data
-        feature_names = [f'feature_{i}' for i in range(X.shape[1])]
+        feature_names = [f"feature_{i}" for i in range(X.shape[1])]
         save_path = str(tmp_path / "feature_importance.png")
         evaluator = ModelEvaluator(trained_models)
         evaluator.calculate_metrics(X, y)
@@ -126,7 +133,7 @@ class TestModelEvaluator:
         X, y = sample_model_data
         lr = LinearRegression()
         lr.fit(X, y)
-        single_model = {'LinearRegression': lr}
+        single_model = {"LinearRegression": lr}
         evaluator = ModelEvaluator(single_model)
         evaluator.calculate_metrics(X, y)
         fig = evaluator.plot_predictions(X, y)
@@ -137,15 +144,17 @@ class TestModelEvaluator:
         X, y = sample_model_data
         lr = LinearRegression()
         lr.fit(X, y)
-        single_model = {'LinearRegression': lr}
+        single_model = {"LinearRegression": lr}
         evaluator = ModelEvaluator(single_model)
         evaluator.calculate_metrics(X, y)
-        feature_names = [f'feature_{i}' for i in range(X.shape[1])]
+        feature_names = [f"feature_{i}" for i in range(X.shape[1])]
         fig = evaluator.plot_feature_importance(feature_names)
         assert fig is not None
         matplotlib.pyplot.close()
 
-    def test_plot_time_series_comparison_save_path(self, tmp_path, trained_models, sample_model_data):
+    def test_plot_time_series_comparison_save_path(
+        self, tmp_path, trained_models, sample_model_data
+    ):
         X, y = sample_model_data
         save_path = str(tmp_path / "timeseries.png")
         evaluator = ModelEvaluator(trained_models)
@@ -159,10 +168,10 @@ class TestModelEvaluator:
         X, y = sample_model_data
         lr = LinearRegression()
         lr.fit(X, y)
-        single_model = {'LinearRegression': lr}
+        single_model = {"LinearRegression": lr}
         evaluator = ModelEvaluator(single_model)
         evaluator.calculate_metrics(X, y)
-        feature_names = [f'feature_{i}' for i in range(X.shape[1])]
+        feature_names = [f"feature_{i}" for i in range(X.shape[1])]
         fig = evaluator.plot_feature_importance(feature_names)
         assert fig is not None
         matplotlib.pyplot.close()
