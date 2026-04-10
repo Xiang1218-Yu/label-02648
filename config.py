@@ -2,6 +2,9 @@
 项目配置文件
 """
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 class Config:
     # 路径配置

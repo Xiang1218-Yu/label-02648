@@ -22,7 +22,11 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.tox/
 
 # IDE
 .vscode/
@@ -30,6 +34,26 @@ wheels/
 *.swp
 *.swo
 *~
+
+# Environment
+.env
+.env.local
+.env.production
+
+# Logs
+logs/*.log
+*.log
+
+# Models and results
+models/*.pkl
+models/*.joblib
+results/*.csv
+results/*.png
+results/*.html
+
+# Data
+data/*.csv
+!data/simulated_data.csv
 
 # macOS
 .DS_Store
